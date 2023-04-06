@@ -11,13 +11,24 @@ var lowerCaseArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o
 var specCharArray = ['!','@','#','$','%','^','&','*','(',')','<','>','?'];
 var numArray = ['0','1','2','3','4','5','6','7','8','9'];
 
+// Write password to the #password input
+function writePassword() {
+  var promptAns = pswCriteria(); //call criteria function
+  var passwordText = document.querySelector("#password");
+  if (promptAns) {
+    var password = generatePassword();
+    passwordText.value = password;
+  } 
+}
+
 //criteria function
 function pswCriteria() {
-  passwordArray = [];
+  passwordLength = [];
   var criteriaOne = window.prompt("How long would you like you password? 8-128 characters");
   var passwordLength = Number(criteriaOne);
+  console.log(passwordLength);
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    alert("password length must be number between 8 and 128.");
+    alert("ERROR! Password length must be number between 8 and 128.");
     return false;
   }
   if (confirm("Would you like any uppercase letters in your password?")) {
@@ -37,19 +48,9 @@ function pswCriteria() {
 
 function generatePassword() {
   var password = "";
-  for (var i = 0; i < passwordLength; i++) {
-    var randomIndex = Math.floor(Math.random() * passwordArray.length);
-    password = password + passwordArray[randomIndex];
+  for (var i = 0; i < Number(passwordLength); i++) {
+    var randomSelector = Math.floor(Math.random() * passwordArray.length);
+    password = password + passwordArray[randomSelector];
   }  
   return password;
-}
-
-// Write password to the #password input
-function writePassword() {
-  var promptAns = pswCriteria(); //call criteria function
-  var passwordText = document.querySelector("#password");
-  if (promptAns) {
-    var newPsw = generatePassword();
-    passwordText.value = newPsw;
-  } 
 }
