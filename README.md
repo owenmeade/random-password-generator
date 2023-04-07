@@ -23,3 +23,5 @@ THEN the password is either displayed in an alert or written to the page
 All HTML and CSS was provided in assingment folder. 
 All Javascript code (other than that provided) was written by myself with the help of W3Schools and YouTube. TA helped me debug problem with length not being registered.
 ## LINK TO LAUNCHED APP
+![Screenshot of deployed site](ScreenShotOfLaunchedApp.PNG)
+[Link to deployed site](https://owenmeade.github.io/random-password-generator/) 
